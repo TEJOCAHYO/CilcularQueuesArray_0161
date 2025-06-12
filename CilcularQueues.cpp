@@ -22,23 +22,24 @@ public:
         cin >> num;
         cout << endl;
 
-       
-            else
-                rear = rear + 1;
+        // 1. cek apakah ada antrian penuh
+        if ((front == 0 && rear == max - 1) || (front == rear + 1))
+        {
+            cout << "\nQueue overflow\n"; // 1.a
+            return;                       // 1.b
         }
-        queue_array[rear] = num;
-    }
 
-    void remove()
-    {
-        // cek apakah antrian kosong
+        // 2. cek apakah antrian kosong
         if (front == -1)
         {
-            cout << "queue underflow\n";
-            return;
+            front = 0; // 2.a
+            rear = 0;  // 2.b
         }
-        cout << "\nthe element deleted from the queue is: " << queue_array[front] << "\n";
-
+        else
+        {
+            // jika rear berada di posisi terakgir array, kembali ke awal array
+            if (rear == max - 1)
+          
         // cek jika antrian hanya memiliki satu elemen
         if (front == rear)
         {
